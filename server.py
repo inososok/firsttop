@@ -1,14 +1,20 @@
-from flask import Flask, render_template, redirect
+import json
+
+from flask import Flask, render_template, redirect, request, jsonify
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
 from data import db_session
 from data.users import User
+from data.scores import Scores
+from data.games import Game
+from data.investments import Investment
+from data.investuser import InvestUser
 
 from forms.login import LoginForm
 from forms.register import RegisterForm
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+app.config['SECRET_KEY'] = 'key'
 db_session.global_init("db/mydatabase.db")
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -47,9 +53,53 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/playgame1")
+@app.route("/playgame1", methods=['GET', 'POST'])
 def play():
-    return render_template("playgame.html")
+    if request.method == 'GET':
+        return render_template('playgame.html')
+    elif request.method == 'POST':
+        # счет
+        score = int(request.form.get('data', 0))
+        db_sess = db_session.create_session()
+        gameid = db_sess.query(Game).filter(Game.title == "Пирамидка").first()
+        if gameid:
+            sc = db_sess.query(Scores).filter(Scores.userid == current_user.id,
+                                              Scores.gamesid == gameid.id).first()
+            if sc:
+                sc.bestscore = max(score, sc.bestscore)
+                db_sess.commit()
+            else:
+                new_score = Scores(userid=current_user.id, gamesid=gameid.id,
+                                   bestscore=score)
+                db_sess.add(new_score)
+                db_sess.commit()
+        user = db_sess.query(User).filter(User.id == current_user.id).first()
+        user.coins = user.coins + score
+        db_sess.commit()
+        return 'ok'
+
+
+@app.route('/shop')
+def invest():
+    return render_template('shop.html')
+
+
+@app.route('/shop/investment/<int:id>')
+def buy(id):
+    db_sess = db_session.create_session()
+    inst = db_sess.query(Investment).filter(Investment.id == id).first()
+    if inst:
+        sc = db_sess.query(InvestUser).filter(InvestUser.userid == current_user.id,
+                                              InvestUser.investmentsid == inst.id).first()
+        if sc:
+            sc.amount = sc.amount + 1
+            db_sess.commit()
+        else:
+            new_score = InvestUser(userid=current_user.id, investmentsid=inst.id,
+                                   amount=1)
+            db_sess.add(new_score)
+            db_sess.commit()
+    return render_template('shop.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
