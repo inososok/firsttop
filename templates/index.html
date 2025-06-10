@@ -4,5 +4,7 @@
 <h2>Список игр</h2>
 {% if current_user.is_authenticated %}
 <a href="/playgame1" class="btn btn-secondary">Игра Пирамидка</a>
+{% else %}
+<h4>Авторизуйся для старта игр</h4>
 {% endif %}
 {% endblock %}

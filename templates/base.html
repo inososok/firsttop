@@ -8,21 +8,12 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
           crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
-    <title>JS игры</title>
-    <link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
-    <meta name="description" content="A simple website, built with Glitch. Remix it to get your own."/>
-    <meta name="robots" content="index,follow" />
-    <meta property="og:title" content="Hello World!" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
-    <meta property="og:description" content="A simple website, built with Glitch. Remix it to get your own."/>
-    <meta property="og:image" content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"/>
-    <meta name="twitter:card" content="summary" />
+    <title>INVESTOPIA</title>
 </head>
 <body>
 <header>
     <nav class="navbar navbar-light bg-light">
-        <h1>WEB-сервис с браузерными играми</h1>
+        <h1>Investopia</h1>
         {% if current_user.is_authenticated %}
         <a class="navbar-brand" href="/logout">{{ current_user.name }} {{ current_user.surname }}</a>
         {% else %}
@@ -32,7 +23,6 @@
         </p>
         {% endif %}
     </nav>
-    <h4>Авторизуйся для старта игр</h4>
 </header>
 <!-- Begin page content -->
 <main role="main" class="container">
