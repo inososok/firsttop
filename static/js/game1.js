@@ -6,16 +6,16 @@ canvas.height = 800;
 
 // Изображения (замените на свои пути)
 const birdImg = new Image();
-birdImg.src = 'img/b0.png';
+birdImg.src = '/static/img/b0.png';
 
 const pipeTopImg = new Image();
-pipeTopImg.src = 'img/toppipe.png';
+pipeTopImg.src = './static/img/toppipe.png';
 
 const pipeBottomImg = new Image();
-pipeBottomImg.src = 'img/botpipe.png';
+pipeBottomImg.src = './static/img/botpipe.png';
 
 const bgImg = new Image();
-bgImg.src = 'img/BG.png';
+bgImg.src = '/static/img/BG.png';
 
 // Игровые переменные
 let bird = {

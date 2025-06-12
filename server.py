@@ -56,7 +56,7 @@ def index():
 @app.route("/game1", methods=['GET', 'POST'])
 def play():
     if request.method == 'GET':
-        return render_template('game1/game1.html')
+        return render_template('game1.html')
     elif request.method == 'POST':
         # счет
         score = int(request.form.get('data', 0))
