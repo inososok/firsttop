@@ -11,3 +11,22 @@ form.login_form {
     border-radius: 5px;
     padding: 10px;
 }
+body {
+   background-color: #FFF9CA;
+}
+p {
+   font-family: comfortaa;
+}
+#best_site {
+   margin-top: 70px; 
+   margin-left: 8px;
+   margin-right: 8px;
+   justify-content: center;
+   align-content: center;
+   display: flex;
+}
+#igri {
+   justify-content: center;
+   align-content: center;
+   display: flex;
+}
