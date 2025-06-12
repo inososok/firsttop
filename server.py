@@ -53,15 +53,15 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/playgame1", methods=['GET', 'POST'])
+@app.route("/game1", methods=['GET', 'POST'])
 def play():
     if request.method == 'GET':
-        return render_template('playgame.html')
+        return render_template('/templates/game1/game1.html')
     elif request.method == 'POST':
         # счет
         score = int(request.form.get('data', 0))
         db_sess = db_session.create_session()
-        gameid = db_sess.query(Game).filter(Game.title == "Пирамидка").first()
+        gameid = db_sess.query(Game).filter(Game.title == "Flappy Coin").first()
         if gameid:
             sc = db_sess.query(Scores).filter(Scores.userid == current_user.id,
                                               Scores.gamesid == gameid.id).first()
