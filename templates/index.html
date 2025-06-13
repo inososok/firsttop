@@ -3,11 +3,21 @@
 {% block content %}
 
 {% if current_user.is_authenticated %}
-<p style="text-align: center; color: #821902; font-size: 23px;">Список игр</p>
+<h1 style="text-align: center; color: #821902; font-weight: bold; margin-bottom: 40px">Список игр</h1>
 <div id	="igri">
 	<div>
-		<a href="/game1"><p>Flappy Coin</p></a>
-		
+		<img style="margin-right: 200px; width: 200px; height: 200px" src="../static/img/Flappy_Bird_logo.jpg">
+		<a class="hip" style="margin-right: 125px;" href="/game1"><h2>Flappy Coin</h2></a>
+
+	</div>
+	<div>
+		<img style="width: 200px; height: 200px" src="../static/img/logo2.png">
+		<a class="hip" href="/game2"><h2>Ponzi Cheme</h2></a>
+	</div>
+	<div style="">
+		<img style="margin-left: 200px; width: 200px; height: 200px" src="../static/img/logo3.png">
+		<a class="hip" style="margin-left: 200px; " href="/game2"><h2>Coinsweeper &nbsp </h2></a>
+
 	</div>
 </div>
 	

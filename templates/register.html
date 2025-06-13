@@ -2,6 +2,9 @@
 
 {% block content %}
 <h1>Регистрация</h1>
+<div>
+
+
 <form action="" method="post">
     {{ form.hidden_tag() }}
     {{ form.csrf_token }}
@@ -55,4 +58,5 @@
     </p>
     <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
 </form>
+</div>
 {% endblock %}

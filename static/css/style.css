@@ -6,7 +6,7 @@ form.login_form {
     margin-left: auto;
     margin-right: auto;
     max-width: 450px;
-    background-color: #ffcc00;
+    background-color: #C39B33;
     border: 1px solid gray;
     border-radius: 5px;
     padding: 10px;
@@ -14,8 +14,17 @@ form.login_form {
 body {
    background-color: #FFF9CA;
 }
+
 p {
    font-family: comfortaa;
+}
+
+h1 {
+   font-family: comfortaa;
+}
+h2 {
+    font-family: comfortaa;
+    color: #821902;
 }
 #best_site {
    margin-top: 70px; 
@@ -29,4 +38,34 @@ p {
    justify-content: center;
    align-content: center;
    display: flex;
+   height: 400px;
+   margin-top: 30px:
+}
+.btn {
+    font-family: comfortaa;
+    color: #FFF9CA;
+    background-color: #821902;
+    border-radius: 8px;
+}
+.i1 {
+    margin-left: 0;
+    margin-right: 100px;
+    justify-content: left;
+    alight-content: left;
+}
+.i2 {
+    justify-content: center;
+    align-content: center;
+    display: flex;
+}
+.i3 {
+    margin-left: 100px;
+    margin-right: 0;
+    justify-content: right;
+    alight-content: right;
+}
+.hip {
+    display: flex;
+    text-decoration: none;
+    margin-top: 10px
 }

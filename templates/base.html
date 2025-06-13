@@ -13,12 +13,15 @@
 <body>
 <header>
     <nav class="navbar navbar-light" style="background-color: #FFF9CA;">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#" style="margin-bottom: 10px;">
             <img src="../static/img/logo.png" style="width: 50px; height: 38px;">
             <img src="../static/img/logo1.png" style="width: 130.27px; height: 31px;" class="d-inline-block align-top">
         </a>
         {% if current_user.is_authenticated %}
-        <a class="navbar-brand" href="/logout">{{ current_user.name }} {{ current_user.surname }}</a>
+        <p style="margin-left: 15px;">
+                <a class="navbar-brand" style="font-family: comfortaa; align-content: right; color: #821902; margin: 10px;"> {{ current_user.name }} {{ current_user.surname }}&nbsp &nbsp &nbspБаланс:{{ current_user.coins }}</a>
+            <a class="btn btn-primary" href="/logout" style="height: 40px; weight: 80px; margin-top: 5px">Выйти</a>
+        </p>
         {% else %}
         <p>
             <a class="btn btn-primary" href="/register" style="background-color: #821902; border-radius: 8px;">Зарегистрироваться</a>
