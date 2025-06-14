@@ -23,13 +23,15 @@ app.config['SECRET_KEY'] = 'key'
 db_session.global_init("db/mydatabase.db")
 login_manager = LoginManager()
 login_manager.init_app(app)
-def delayed_command():
-    time.sleep(2)
-    chance = random(0,1)
-    cost = cost * random(0,100) // 100
+#def delayed_command():
+#    time.sleep(2)
+#    chance = random(0,1)
+#    cost = cost * random(0,100) // 100
+
+
 def main():
-    thread = threading.Thread(target=delayed_command, args=(3, "Выполнить команду"))
-    thread.start()
+#    thread = threading.Thread(target=delayed_command, args=(3, "Выполнить команду"))
+#    thread.start()
     @login_manager.user_loader
     def load_user(user_id):
         db_sess = db_session.create_session()
@@ -138,4 +140,5 @@ def main():
 
 
 if __name__ == '__main__':
+    main()
     app.run(port=8080, host='127.0.0.1')
